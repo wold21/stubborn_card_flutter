@@ -25,7 +25,7 @@ class Stubborn extends StatelessWidget {
             Center(
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/character.jpg'),
-                radius: 40.0,
+                radius: 70.0,
               ),
             ),
             Divider(
