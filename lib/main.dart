@@ -4,8 +4,15 @@ void main() => runApp(MaterialApp(
       home: Stubborn(),
     ));
 
-class Stubborn extends StatelessWidget {
+class Stubborn extends StatefulWidget {
   const Stubborn({Key? key}) : super(key: key);
+
+  @override
+  State<Stubborn> createState() => _StubbornState();
+}
+
+class _StubbornState extends State<Stubborn> {
+  int stubbornlevel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +24,14 @@ class Stubborn extends StatelessWidget {
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              stubbornlevel += 1;
+            });
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Colors.grey[850]),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
         child: Column(
@@ -53,7 +68,7 @@ class Stubborn extends StatelessWidget {
             SizedBox(
               height: 10.0,
             ),
-            Text('LV. 5',
+            Text('LV $stubbornlevel',
                 style: TextStyle(
                     color: Colors.amberAccent[200],
                     letterSpacing: 2.0,
